@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/prog-multi-serv-moviles-kotlin.iml" filepath="$PROJECT_DIR$/.idea/prog-multi-serv-moviles-kotlin.iml" />
-      <module fileurl="file://$PROJECT_DIR$/prueba/prueba.iml" filepath="$PROJECT_DIR$/prueba/prueba.iml" />
+      <module fileurl="file://$PROJECT_DIR$/programacion_con_Kotlin/prueba.iml" filepath="$PROJECT_DIR$/programacion_con_Kotlin/prueba.iml" />
     </modules>
   </component>
 </project>
