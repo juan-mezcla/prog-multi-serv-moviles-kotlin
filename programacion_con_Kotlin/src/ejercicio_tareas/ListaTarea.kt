@@ -13,6 +13,9 @@ class ListaTarea {
         var prioridad:Int?=0
 
         do {
+            println("Introduce el tipo de la tarea: 1-Evento. 2-Recordatorio.")
+            opcion=readln().toInt();
+
             println("Introduce la descripcion de la tarea:")
             descripcion=readLine().toString();
 
@@ -21,14 +24,13 @@ class ListaTarea {
             prioridad=if(prioridad!=null) prioridad else 1
 
             if (descripcion!=""){
-                listaTarea.add(Tarea(descripcion,prioridad,false))
+                if (opcion==1) listaTarea.add(Evento(descripcion,prioridad,false)) else  listaTarea.add(Recordatorio(descripcion,prioridad,false))
+
                 println("Tarea añadida!! \n")
 
                 println("Deseas añadir otra tarea? 1-Si. 2-No.")
                 opcion= readln().toInt()
 
-                if (opcion!=1) println("Introduce una opcion dentro del rango. Saliendo de agregar tareas.")
-                opcion=2
             }else {
 
                 println("Campo de descripcion vacio.")
@@ -49,11 +51,11 @@ class ListaTarea {
             opcion=if (opcion<=listaTarea.size-1 && opcion>0) opcion else -1
 
             if (opcion!=-1){
-                var tarea=listaTarea.get(opcion-1)
-                tarea.completada=if (tarea.completada) false else true
+                var tarea=listaTarea.removeAt(opcion-1)
+
             }
 
-                println("Deseas cambiar el estado de otra tarea? 1-Si. 2-No.")
+                println("Deseas eliminar otra tarea? 1-Si. 2-No.")
                 opcion= readln().toInt()
 
                 if (opcion!=1) println("Introduce una opcion dentro del rango. Saliendo de agregar tareas.")
@@ -67,7 +69,9 @@ class ListaTarea {
 
     fun mostrarTareas(){
         cont=1
-        listaTarea.forEach { println("$cont- $it") }
+        listaTarea.forEach { println("$cont- $it")
+            cont++
+        }
     }
 
     fun tareasCompletadas(){
@@ -75,6 +79,7 @@ class ListaTarea {
         println("Tareas completadas")
         listaTarea.forEach { tarea ->
             if (tarea.completada) println("$cont- $tarea")
+            cont++
         }
     }
 
@@ -88,8 +93,8 @@ class ListaTarea {
             opcion=readln().toInt()
             opcion=if (opcion<=listaTarea.size-1 && opcion>0) opcion else 1
 
-
-                println("Deseas eliminar otra tarea? 1-Si. 2-No.")
+            listaTarea.get(opcion-1).completada=if (listaTarea.get(opcion-1).completada) false else true
+                println("Deseas cambiar otra tarea? 1-Si. 2-No.")
                 opcion= readln().toInt()
 
                 if (opcion!=1) println("Introduce una opcion dentro del rango. Saliendo de agregar tareas.")

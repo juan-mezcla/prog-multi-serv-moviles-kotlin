@@ -1,3 +1,3 @@
 package ejercicio_tareas
 
-data class Tarea(var descripcion: String, var prioridad: Int?, var completada: Boolean)
+open class Tarea(open var descripcion: String,open var prioridad: Int?,open var completada: Boolean)
